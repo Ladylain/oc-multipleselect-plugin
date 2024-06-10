@@ -1,1 +1,1 @@
-# multipleselect
+# Multiple Select Plugin for OctoberCMS
