@@ -1,0 +1,8 @@
+{
+    "name": "lucaspalomba/multipleselect-plugin",
+    "type": "october-plugin",
+    "description": "Add a Multiple Select formwidget",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}

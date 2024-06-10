@@ -1,0 +1,12 @@
+/*
+ * This is a sample StyleSheet file used by MultipleSelect
+ *
+ * You can delete this file if you want
+ */
+.field-multipleselect {
+    width: 100%;
+}
+.field-multipleselect input[name="q"] {
+
+    margin-bottom: 0.5rem;
+}
