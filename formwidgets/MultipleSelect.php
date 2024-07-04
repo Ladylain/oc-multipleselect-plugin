@@ -18,6 +18,10 @@ class MultipleSelect extends FormWidgetBase
     const MODE_STRING = 'string';
     const MODE_RELATION = 'relation';
 
+    /**
+     * @var string separator for tags: space, comma.
+     */
+    public $separator = 'comma';
 
      /**
      * @var mixed options settings. Set to true to get from model.
@@ -38,6 +42,12 @@ class MultipleSelect extends FormWidgetBase
      * @var bool useKey instead of value for saving and reading data.
      */
     public $keyFrom = 'id';
+
+
+    /**
+     * @var bool useOptions
+     */
+    protected $useOptions = false;
 
     protected $defaultAlias = 'multiselect';
 
@@ -118,6 +128,7 @@ class MultipleSelect extends FormWidgetBase
         if (!is_array($value) && $this->mode === static::MODE_STRING) {
             return $this->getLoadValueFromString($value);
         }
+
         return $value;
     }
 

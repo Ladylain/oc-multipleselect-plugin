@@ -32,7 +32,7 @@ class Plugin extends PluginBase
      */
     public function registerComponents(): array
     {
-        /*return [];*/
+        return [];
     }
 
     /**

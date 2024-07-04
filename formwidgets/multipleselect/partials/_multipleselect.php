@@ -1,9 +1,6 @@
 <?php
     $fieldOptions = $fieldOptions;
-    $checkedValues = (array) $field->value;
-    $isScrollable = count($fieldOptions) > 10;
-    $inlineOptions = $field->inlineOptions && !$isScrollable;
-    $isQuickselect = $field->getConfig('quickselect', $isScrollable);
+    $checkedValues = (array) $selectedValues;
 ?>
 <!-- Multiple Select -->
 <?php if ($this->previewMode): ?>
@@ -25,7 +22,7 @@
                                 <?php
                                     $index++;
                                     $checkboxId = 'checkbox_'.$field->getId().'_'.$index;
-                                    if (in_array($value, $checkedValues)) continue;
+                                    if (in_array($option, $checkedValues)) continue;
                                     if (!is_array($option)) $option = [$option];
                                 ?>
                                 <option value="<?= e($value) ?>"><?= $field->getDisplayValue($option[0]) ?></option>
@@ -46,7 +43,7 @@
                                 <?php
                                     $index++;
                                     $checkboxId = 'checkbox_'.$field->getId().'_'.$index;
-                                    if (!in_array($value, $checkedValues)) continue;
+                                    if (!in_array($option, $checkedValues)) continue;
                                     if (!is_array($option)) $option = [$option];
                                 ?>
                                 <option value="<?= e($value) ?>"><?= $field->getDisplayValue($option[0]) ?></option>
@@ -55,7 +52,7 @@
                     </select>
                 </div>
                 <!-- on affiche un champs caché qui permet de récuperer les valeurs du select multiple -->
-                <input type="hidden" name="<?= $field->getName() ?>" value="<?= join(',', $checkedValues) ?>">
+                <input type="hidden" name="<?= $field->getName() ?>" value="<?= join(',', array_keys($checkedValues)) ?>">
             </div>
         </div>
         <script type="text/javascript">
