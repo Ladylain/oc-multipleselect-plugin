@@ -86,6 +86,10 @@ class MultipleSelect extends FormWidgetBase
 
     public function getSaveValue($value)
     {
+        if (is_string($value) && !strlen($value)) {
+            return null;
+        }
+
         return explode(',',$value);
     }
 
